@@ -9,26 +9,25 @@ const rl = readline.createInterface({
 });
 
 function kalkulator() {
-        console.log(`
-            ====== KALKULATOR SEDERHANA ======
-            Pilih operasi matematika:
-            1. Penjumlahan
-            2. Pengurangan
-            3. Perkalian
-            4. Pembagian
-            5. Pangkat
-            6. Faktorial
-            7. Cek Prima
-            8. Modulus
-            9. Nilai Absolut
-            10. Maksimum
-            11. Minimum
-            12. Bulatkan
-            0. Keluar
-        `);
-    
+    console.log(`
+        ====== KALKULATOR SEDERHANA ======
+        Pilih operasi matematika:
+        1. Penjumlahan
+        2. Pengurangan
+        3. Perkalian
+        4. Pembagian
+        5. Pangkat
+        6. Faktorial
+        7. Cek Prima
+        8. Modulus
+        9. Nilai Absolut
+        10. Maksimum
+        11. Minimum
+        12. Bulatkan
+        0. Keluar
+    `);
 
-    rl.question("Masukkan pilihan (1-12): ", (choice) => {
+    rl.question("Masukkan pilihan (0-12): ", (choice) => {
         let a, b;
         if ([1, 2, 3, 4, 5, 8, 10, 11].includes(parseInt(choice))) {
             rl.question("Masukkan angka pertama: ", (num1) => {
@@ -43,13 +42,12 @@ function kalkulator() {
                 a = parseFloat(num);
                 hitung(choice, a);
             });
-        } else if ([0].includes(parseInt(choice))) {
+        } else if (parseInt(choice) === 0) {
             console.log("Terima kasih sudah menggunakan kalkulator sederhana kami ^-^");
             rl.close();
-            return;
         } else {
             console.log("Pilihan tidak valid!");
-            rl.close();
+            kalkulator();
         }
     });
 }
@@ -69,10 +67,10 @@ function hitung(choice, a, b) {
         case 10: hasil = solution.maksimum(a, b); break;
         case 11: hasil = solution.minimum(a, b); break;
         case 12: hasil = solution.bulatkan(a); break;
-        default: console.log("Pilihan tidak valid"); rl.close(); return;
+        default: console.log("Pilihan tidak valid"); kalkulator(); return;
     }
     console.log("Hasil: ", hasil);
-    rl.close();
+    kalkulator();
 }
 
 kalkulator();

@@ -5,6 +5,7 @@
  * @returns {number}
  */
 function tambah(a, b) {
+    return a + b;
 }
 
 /**
@@ -14,6 +15,7 @@ function tambah(a, b) {
  * @returns {number}
  */
 function kurang(a, b) {
+    return a - b;
 }
 
 /**
@@ -23,6 +25,7 @@ function kurang(a, b) {
  * @returns {number}
  */
 function kali(a, b) {
+    return a * b;
 }
 
 /**
@@ -32,7 +35,8 @@ function kali(a, b) {
  * @returns {number | string}
  */
 function bagi(a, b) {
- 
+    if (b === 0) return "Pembagian oleh nol tidak diperbolehkan";
+    return a / b;
 }
 
 /**
@@ -42,6 +46,7 @@ function bagi(a, b) {
  * @returns {number}
  */
 function pangkat(a, b) {
+    return Math.pow(a, b);
 }
 
 /**

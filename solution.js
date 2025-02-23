@@ -50,6 +50,12 @@ function pangkat(a, b) {
  * @returns {number}
  */
 function faktorial(n) {
+    if (n === 0) return 1;
+    let hasil = 1;
+    for (let i = 1; i <= n; i++) {
+        hasil *= i;
+    }
+    return hasil;
 }
 
 /**
@@ -58,18 +64,21 @@ function faktorial(n) {
  * @returns {boolean}
  */
 function isPrima(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
 }
 
 /**
  * Mengembalikan hasil dari a modulus b.
- * modulus adalah sisa pembagian a dengan b.
- * contoh 10 mod 3 = 1, karena 10 dibagi 3 adalah 3 sisa 1.
- * 10 / 3 = 3 sisa 1. dan 1 adalah jawabannya
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
  */
 function modulus(a, b) {
+    return a % b;
 }
 
 /**
@@ -78,8 +87,8 @@ function modulus(a, b) {
  * @returns {number}
  */
 function absolut(a) {
+    return Math.abs(a);
 }
-
 
 /**
  * Mengembalikan nilai terbesar dari dua angka.
@@ -88,6 +97,7 @@ function absolut(a) {
  * @returns {number}
  */
 function maksimum(a, b) {
+    return Math.max(a, b);
 }
 
 /**
